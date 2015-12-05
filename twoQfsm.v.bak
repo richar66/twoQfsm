@@ -1,0 +1,111 @@
+module twoQfsm(answer, submit, clk, rst, redOut, greenOut);
+
+input [1:0] answer;
+input submit, clk, rst;
+output redOut, greenOut;
+reg redOut, greenOut;
+reg [1:0] S, NS;
+reg [1:0] Answer;
+
+parameter
+				Q1 = 2'b00,
+				check = 2'b01,
+				wrong = 2'b10,
+				correct = 2'b11;
+always @ (posedge clk or negedge rst)
+begin
+	if (rst == 1'b0)
+	begin
+		S <= Q1;
+	end
+	
+	else
+	begin
+		S<= NS;
+	end
+end
+
+always @ (*)
+begin
+	case(S) 
+	Q1:
+	begin
+		if (submit == 1'b0)
+		begin	
+			NS = Q1;
+		end
+		else
+		begin	
+			NS = check;
+		end
+	end
+	
+	check:
+	begin
+		if(submit == 1'b1)
+		begin
+			if (Answer == 2'b01 )
+			begin
+				NS = correct;
+			end
+			else 
+			begin
+				NS = wrong;
+			end
+		end
+		
+		else 
+		begin
+			NS = Q1;
+		end
+	end
+	
+	wrong:
+	begin
+		if (submit == 0)
+		begin
+			NS = Q1;
+		end
+		else
+		begin
+			NS = wrong;
+		end
+	
+	end
+	correct:
+	begin
+		if (submit == 0)
+		begin
+			NS = Q1;
+		end
+		else
+		begin
+			NS = correct;
+		end
+	end
+	endcase
+end	
+always @ (posedge clk or negedge rst)
+begin
+	if(rst == 1'b0)
+	begin
+	greenOut <= 1'b0;
+	redOut <= 1'b0;
+	end
+	else
+	begin
+		case(S)
+		Q1: 
+		begin
+		Answer <= answer;
+		greenOut <= 1'b0;
+		redOut <= 1'b0;
+		end
+		correct: greenOut <= 1'b1;
+	
+		wrong: redOut <= 1'b1;
+		endcase
+	end
+	
+end
+endmodule

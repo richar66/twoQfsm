@@ -1,0 +1,1812 @@
+TimeQuest Timing Analyzer report for twoQfsm
+Thu Nov 19 11:29:37 2015
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'clk'
+ 27. Slow 1200mV 0C Model Hold: 'clk'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'clk'
+ 40. Fast 1200mV 0C Model Hold: 'clk'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 55. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 56. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 57. Setup Transfers
+ 58. Hold Transfers
+ 59. Report TCCS
+ 60. Report RSKM
+ 61. Unconstrained Paths
+ 62. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 14.0.0 Build 200 06/17/2014 SJ Web Edition ;
+; Revision Name      ; twoQfsm                                            ;
+; Device Family      ; Cyclone IV E                                       ;
+; Device Name        ; EP4CE115F29C7                                      ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
+;     Processors 5-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 463.18 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -1.159 ; -21.148            ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.403 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -32.555                          ;
++-------+--------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                 ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; -1.159 ; Answer[5]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 2.078      ;
+; -1.158 ; Answer[5]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 2.077      ;
+; -1.158 ; Answer[5]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 2.077      ;
+; -1.154 ; Answer[5]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 2.073      ;
+; -1.150 ; Answer[4]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 2.069      ;
+; -1.149 ; Answer[4]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 2.068      ;
+; -1.149 ; Answer[4]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 2.068      ;
+; -1.145 ; Answer[4]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 2.064      ;
+; -1.102 ; S.Q0             ; Answer[8]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[1]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[0]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[3]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[2]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[4]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[5]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[9]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[6]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.102 ; S.Q0             ; Answer[7]        ; clk          ; clk         ; 1.000        ; -0.079     ; 2.021      ;
+; -1.067 ; S.wrong1         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 1.985      ;
+; -0.993 ; Answer[3]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.912      ;
+; -0.992 ; Answer[3]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.911      ;
+; -0.992 ; Answer[3]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.911      ;
+; -0.988 ; Answer[3]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.907      ;
+; -0.924 ; Answer[7]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.843      ;
+; -0.924 ; Answer[7]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.843      ;
+; -0.923 ; Answer[7]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.842      ;
+; -0.918 ; Answer[7]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.837      ;
+; -0.914 ; Answer[6]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.833      ;
+; -0.914 ; Answer[6]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.833      ;
+; -0.913 ; S.correct0       ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 1.831      ;
+; -0.913 ; Answer[6]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.832      ;
+; -0.911 ; S.Q1             ; Answer[8]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[1]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[0]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[3]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[2]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[4]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[5]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[9]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[6]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.911 ; S.Q1             ; Answer[7]        ; clk          ; clk         ; 1.000        ; -0.079     ; 1.830      ;
+; -0.908 ; Answer[6]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.827      ;
+; -0.904 ; S.check0         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 1.822      ;
+; -0.901 ; S.check1         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 1.819      ;
+; -0.899 ; S.check1         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 1.817      ;
+; -0.836 ; Answer[2]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.755      ;
+; -0.835 ; Answer[2]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.754      ;
+; -0.828 ; Answer[2]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.747      ;
+; -0.824 ; Answer[2]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.743      ;
+; -0.773 ; S.Q0             ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.080     ; 1.691      ;
+; -0.768 ; S.correct1       ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.686      ;
+; -0.748 ; Question[0]~reg0 ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.666      ;
+; -0.741 ; S.check0         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 1.659      ;
+; -0.736 ; S.check0         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.654      ;
+; -0.734 ; S.check1         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.652      ;
+; -0.733 ; S.wrong0         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 1.651      ;
+; -0.729 ; S.correct1       ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 1.647      ;
+; -0.677 ; Answer[1]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.596      ;
+; -0.674 ; Answer[0]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.593      ;
+; -0.674 ; Answer[0]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.593      ;
+; -0.672 ; Answer[1]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.591      ;
+; -0.654 ; S.Q1             ; Question[1]~reg0 ; clk          ; clk         ; 1.000        ; 0.304      ; 1.956      ;
+; -0.654 ; S.Q1             ; Question[2]~reg0 ; clk          ; clk         ; 1.000        ; 0.304      ; 1.956      ;
+; -0.621 ; S.correct0       ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.539      ;
+; -0.616 ; Answer[8]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.535      ;
+; -0.616 ; Answer[8]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.535      ;
+; -0.615 ; Answer[8]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.534      ;
+; -0.610 ; Answer[8]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.529      ;
+; -0.587 ; S.Q0             ; Question[1]~reg0 ; clk          ; clk         ; 1.000        ; 0.304      ; 1.889      ;
+; -0.587 ; S.Q0             ; Question[2]~reg0 ; clk          ; clk         ; 1.000        ; 0.304      ; 1.889      ;
+; -0.584 ; Answer[9]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.503      ;
+; -0.583 ; Answer[9]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.502      ;
+; -0.577 ; Answer[9]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.496      ;
+; -0.576 ; S.wrong1         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.494      ;
+; -0.571 ; Answer[9]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.490      ;
+; -0.568 ; S.correct0       ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.079     ; 1.487      ;
+; -0.568 ; S.check1         ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.079     ; 1.487      ;
+; -0.455 ; S.check0         ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.080     ; 1.373      ;
+; -0.450 ; S.correct1       ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.080     ; 1.368      ;
+; -0.446 ; S.wrong0         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.364      ;
+; -0.445 ; S.correct0       ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 1.363      ;
+; -0.439 ; S.wrong1         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 1.357      ;
+; -0.424 ; S.wrong0         ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.080     ; 1.342      ;
+; -0.419 ; S.Q1             ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.079     ; 1.338      ;
+; -0.399 ; S.check1         ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.318      ;
+; -0.387 ; S.check0         ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.306      ;
+; -0.329 ; S.check1         ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.248      ;
+; -0.314 ; S.check0         ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.233      ;
+; -0.263 ; S.Q1             ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.080     ; 1.181      ;
+; -0.189 ; Answer[0]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.108      ;
+; -0.186 ; Answer[1]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.079     ; 1.105      ;
+; -0.179 ; Answer[1]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.098      ;
+; -0.177 ; Answer[0]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.079     ; 1.096      ;
+; -0.102 ; S.Q0             ; S.check0         ; clk          ; clk         ; 1.000        ; -0.080     ; 1.020      ;
+; -0.083 ; S.correct1       ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 1.001      ;
+; -0.082 ; S.wrong0         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 1.000      ;
+; -0.057 ; S.wrong1         ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.079     ; 0.976      ;
+; 0.077  ; S.Q1             ; S.check1         ; clk          ; clk         ; 1.000        ; -0.080     ; 0.841      ;
+; 0.184  ; greenOut~reg0    ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.080     ; 0.734      ;
+; 0.184  ; redOut~reg0      ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.080     ; 0.734      ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                 ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 0.403 ; greenOut~reg0    ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; redOut~reg0      ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.669      ;
+; 0.404 ; S.wrong0         ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; S.correct0       ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; S.correct1       ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; S.wrong1         ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 0.669      ;
+; 0.469 ; S.Q1             ; S.check1         ; clk          ; clk         ; 0.000        ; 0.080      ; 0.735      ;
+; 0.580 ; S.wrong1         ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.079      ; 0.845      ;
+; 0.642 ; S.wrong0         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.079      ; 0.907      ;
+; 0.644 ; S.correct1       ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.079      ; 0.909      ;
+; 0.652 ; S.Q0             ; S.check0         ; clk          ; clk         ; 0.000        ; 0.079      ; 0.917      ;
+; 0.752 ; Answer[0]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.017      ;
+; 0.754 ; Answer[1]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.019      ;
+; 0.754 ; Answer[1]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.019      ;
+; 0.757 ; Answer[0]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.022      ;
+; 0.773 ; S.Q1             ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.039      ;
+; 0.824 ; S.check0         ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.080      ; 1.090      ;
+; 0.842 ; S.check1         ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.080      ; 1.108      ;
+; 0.885 ; S.check0         ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.080      ; 1.151      ;
+; 0.900 ; S.check1         ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.080      ; 1.166      ;
+; 0.937 ; S.wrong0         ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.079      ; 1.202      ;
+; 0.937 ; S.check0         ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.080      ; 1.203      ;
+; 0.942 ; S.wrong1         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.079      ; 1.207      ;
+; 0.948 ; S.correct0       ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.079      ; 1.213      ;
+; 0.982 ; S.wrong0         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.079      ; 1.247      ;
+; 0.985 ; S.correct1       ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.079      ; 1.250      ;
+; 0.987 ; S.Q1             ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.080      ; 1.253      ;
+; 1.038 ; Question[0]~reg0 ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.304      ;
+; 1.080 ; S.correct0       ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.079      ; 1.345      ;
+; 1.101 ; S.check1         ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.080      ; 1.367      ;
+; 1.107 ; Answer[9]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.372      ;
+; 1.107 ; Answer[9]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.372      ;
+; 1.112 ; Answer[9]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.377      ;
+; 1.117 ; Answer[9]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.382      ;
+; 1.118 ; Answer[8]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.383      ;
+; 1.120 ; S.wrong1         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.079      ; 1.385      ;
+; 1.124 ; Answer[8]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.389      ;
+; 1.131 ; S.correct0       ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.079      ; 1.396      ;
+; 1.139 ; Answer[8]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.404      ;
+; 1.140 ; Answer[8]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.405      ;
+; 1.200 ; Answer[1]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.465      ;
+; 1.211 ; Answer[0]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.476      ;
+; 1.212 ; S.check1         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.478      ;
+; 1.213 ; S.check0         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.080      ; 1.479      ;
+; 1.216 ; S.Q0             ; Question[1]~reg0 ; clk          ; clk         ; 0.000        ; 0.479      ; 1.881      ;
+; 1.216 ; S.Q0             ; Question[2]~reg0 ; clk          ; clk         ; 0.000        ; 0.479      ; 1.881      ;
+; 1.220 ; S.check0         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.486      ;
+; 1.221 ; Answer[1]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.486      ;
+; 1.227 ; Answer[0]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.492      ;
+; 1.249 ; S.Q1             ; Question[1]~reg0 ; clk          ; clk         ; 0.000        ; 0.480      ; 1.915      ;
+; 1.249 ; S.Q1             ; Question[2]~reg0 ; clk          ; clk         ; 0.000        ; 0.480      ; 1.915      ;
+; 1.255 ; S.correct1       ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.079      ; 1.520      ;
+; 1.258 ; S.wrong0         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.079      ; 1.523      ;
+; 1.278 ; S.correct1       ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.079      ; 1.543      ;
+; 1.334 ; Answer[2]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.599      ;
+; 1.335 ; Answer[2]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.600      ;
+; 1.340 ; Answer[2]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.605      ;
+; 1.341 ; S.Q0             ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.079      ; 1.606      ;
+; 1.344 ; Answer[2]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.609      ;
+; 1.363 ; S.check1         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.080      ; 1.629      ;
+; 1.364 ; S.check1         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.630      ;
+; 1.373 ; S.check0         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.639      ;
+; 1.411 ; S.correct0       ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.079      ; 1.676      ;
+; 1.429 ; Answer[6]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.694      ;
+; 1.430 ; Answer[7]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.695      ;
+; 1.435 ; Answer[6]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.700      ;
+; 1.436 ; Answer[7]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.701      ;
+; 1.450 ; Answer[6]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.715      ;
+; 1.451 ; Answer[7]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.716      ;
+; 1.451 ; Answer[6]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.716      ;
+; 1.452 ; Answer[7]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.717      ;
+; 1.526 ; Answer[3]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.791      ;
+; 1.529 ; Answer[3]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.794      ;
+; 1.545 ; Answer[3]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.810      ;
+; 1.547 ; Answer[3]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.812      ;
+; 1.571 ; S.wrong1         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.079      ; 1.836      ;
+; 1.615 ; S.Q1             ; Answer[8]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[1]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[0]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[3]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[2]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[4]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[5]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[9]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[6]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.615 ; S.Q1             ; Answer[7]        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.881      ;
+; 1.672 ; Answer[5]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.937      ;
+; 1.672 ; Answer[4]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.937      ;
+; 1.675 ; Answer[5]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.940      ;
+; 1.675 ; Answer[4]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.079      ; 1.940      ;
+; 1.691 ; Answer[5]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.956      ;
+; 1.691 ; Answer[4]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.956      ;
+; 1.693 ; Answer[5]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.958      ;
+; 1.693 ; Answer[4]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.079      ; 1.958      ;
+; 1.720 ; S.Q0             ; Answer[8]        ; clk          ; clk         ; 0.000        ; 0.079      ; 1.985      ;
+; 1.720 ; S.Q0             ; Answer[1]        ; clk          ; clk         ; 0.000        ; 0.079      ; 1.985      ;
+; 1.720 ; S.Q0             ; Answer[0]        ; clk          ; clk         ; 0.000        ; 0.079      ; 1.985      ;
+; 1.720 ; S.Q0             ; Answer[3]        ; clk          ; clk         ; 0.000        ; 0.079      ; 1.985      ;
+; 1.720 ; S.Q0             ; Answer[2]        ; clk          ; clk         ; 0.000        ; 0.079      ; 1.985      ;
+; 1.720 ; S.Q0             ; Answer[4]        ; clk          ; clk         ; 0.000        ; 0.079      ; 1.985      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'clk'                                                           ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                       ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[0]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[1]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[2]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[3]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[4]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[5]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[6]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[7]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[8]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[9]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Question[0]~reg0          ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Question[1]~reg0          ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Question[2]~reg0          ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.Q0                      ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.Q1                      ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.check0                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.check1                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.correct0                ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.correct1                ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.wrong0                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.wrong1                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; greenOut~reg0             ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; redOut~reg0               ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[0]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[1]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[2]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[3]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[4]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[5]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[6]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[7]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[8]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Answer[9]                 ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Question[0]~reg0          ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.Q0                      ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.Q1                      ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.check0                  ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.check1                  ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.correct0                ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.correct1                ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong0                  ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong1                  ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; greenOut~reg0             ;
+; 0.261  ; 0.449        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; redOut~reg0               ;
+; 0.269  ; 0.457        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Question[1]~reg0          ;
+; 0.269  ; 0.457        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; Question[2]~reg0          ;
+; 0.322  ; 0.542        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Question[1]~reg0          ;
+; 0.322  ; 0.542        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Question[2]~reg0          ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[0]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[1]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[2]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[3]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[4]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[5]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[6]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[7]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[8]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Answer[9]                 ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; Question[0]~reg0          ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.Q0                      ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.Q1                      ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.check0                  ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.check1                  ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.correct0                ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.correct1                ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.wrong0                  ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; S.wrong1                  ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; greenOut~reg0             ;
+; 0.330  ; 0.550        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; redOut~reg0               ;
+; 0.394  ; 0.394        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o               ;
+; 0.408  ; 0.408        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|inclk[0] ;
+; 0.408  ; 0.408        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|outclk   ;
+; 0.413  ; 0.413        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[0]~reg0|clk      ;
+; 0.413  ; 0.413        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.Q1|clk                  ;
+; 0.413  ; 0.413        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.check0|clk              ;
+; 0.413  ; 0.413        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.check1|clk              ;
+; 0.413  ; 0.413        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; greenOut~reg0|clk         ;
+; 0.413  ; 0.413        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; redOut~reg0|clk           ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[0]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[1]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[2]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[3]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[4]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[5]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[6]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[7]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[8]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[9]|clk             ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.Q0|clk                  ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.correct0|clk            ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.correct1|clk            ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong0|clk              ;
+; 0.414  ; 0.414        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong1|clk              ;
+; 0.421  ; 0.421        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[1]~reg0|clk      ;
+; 0.421  ; 0.421        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[2]~reg0|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i               ;
+; 0.577  ; 0.577        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; Question[1]~reg0|clk      ;
+; 0.577  ; 0.577        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; Question[2]~reg0|clk      ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; answer[*]  ; clk        ; 1.820 ; 2.151 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; 1.273 ; 1.625 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; 1.584 ; 1.931 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; 1.254 ; 1.612 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; 1.546 ; 1.894 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; 1.052 ; 1.391 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; 1.400 ; 1.739 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; 1.820 ; 2.151 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; 1.087 ; 1.435 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; 1.717 ; 2.073 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; 1.193 ; 1.554 ; Rise       ; clk             ;
+; rst        ; clk        ; 2.784 ; 3.088 ; Rise       ; clk             ;
+; submit     ; clk        ; 2.258 ; 2.615 ; Rise       ; clk             ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Times                                                               ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; answer[*]  ; clk        ; -0.622 ; -0.938 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; -0.849 ; -1.187 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; -1.148 ; -1.481 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; -0.830 ; -1.174 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; -1.111 ; -1.446 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; -0.622 ; -0.938 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; -0.956 ; -1.272 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; -1.359 ; -1.668 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; -0.656 ; -0.981 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; -1.260 ; -1.593 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; -0.771 ; -1.119 ; Rise       ; clk             ;
+; rst        ; clk        ; -2.348 ; -2.638 ; Rise       ; clk             ;
+; submit     ; clk        ; -1.264 ; -1.586 ; Rise       ; clk             ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 8.596 ; 8.650 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 8.596 ; 8.650 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 8.070 ; 8.107 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 7.705 ; 7.743 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 7.737 ; 7.763 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 7.117 ; 7.139 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 8.469 ; 8.387 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 9.667 ; 9.772 ; Rise       ; clk             ;
+; redOut       ; clk        ; 9.680 ; 9.812 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 6.875 ; 6.897 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 8.290 ; 8.343 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 7.789 ; 7.826 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 7.439 ; 7.476 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 7.470 ; 7.496 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 6.875 ; 6.897 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 8.226 ; 8.145 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 9.328 ; 9.427 ; Rise       ; clk             ;
+; redOut       ; clk        ; 9.340 ; 9.465 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 508.91 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -0.965 ; -17.128           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.355 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -32.555                         ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                  ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; -0.965 ; Answer[5]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.893      ;
+; -0.961 ; Answer[5]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.889      ;
+; -0.958 ; Answer[4]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.886      ;
+; -0.956 ; Answer[5]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.884      ;
+; -0.955 ; Answer[5]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.883      ;
+; -0.954 ; Answer[4]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.882      ;
+; -0.949 ; Answer[4]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.877      ;
+; -0.948 ; Answer[4]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.876      ;
+; -0.912 ; S.Q0             ; Answer[8]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[1]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[0]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[3]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[2]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[4]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[5]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[9]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[6]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.912 ; S.Q0             ; Answer[7]        ; clk          ; clk         ; 1.000        ; -0.071     ; 1.840      ;
+; -0.849 ; S.wrong1         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.071     ; 1.777      ;
+; -0.815 ; Answer[3]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.743      ;
+; -0.811 ; Answer[3]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.739      ;
+; -0.806 ; Answer[3]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.734      ;
+; -0.805 ; Answer[3]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.733      ;
+; -0.755 ; S.Q1             ; Answer[8]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[1]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[0]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[3]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[2]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[4]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[5]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[9]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[6]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.755 ; S.Q1             ; Answer[7]        ; clk          ; clk         ; 1.000        ; -0.070     ; 1.684      ;
+; -0.750 ; Answer[7]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.678      ;
+; -0.744 ; Answer[7]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.672      ;
+; -0.743 ; Answer[6]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.671      ;
+; -0.740 ; Answer[7]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.668      ;
+; -0.739 ; Answer[7]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.667      ;
+; -0.737 ; Answer[6]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.665      ;
+; -0.733 ; Answer[6]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.661      ;
+; -0.732 ; Answer[6]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.660      ;
+; -0.712 ; S.correct0       ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.071     ; 1.640      ;
+; -0.707 ; S.check0         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.070     ; 1.636      ;
+; -0.706 ; S.check1         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.070     ; 1.635      ;
+; -0.703 ; S.check1         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.070     ; 1.632      ;
+; -0.648 ; Answer[2]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.576      ;
+; -0.647 ; Answer[2]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.575      ;
+; -0.634 ; Answer[2]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.562      ;
+; -0.630 ; Answer[2]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.558      ;
+; -0.622 ; S.Q0             ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.071     ; 1.550      ;
+; -0.586 ; S.correct1       ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.071     ; 1.514      ;
+; -0.569 ; S.check0         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.070     ; 1.498      ;
+; -0.568 ; S.check1         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.070     ; 1.497      ;
+; -0.567 ; Question[0]~reg0 ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.070     ; 1.496      ;
+; -0.563 ; S.check0         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.070     ; 1.492      ;
+; -0.550 ; S.wrong0         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.071     ; 1.478      ;
+; -0.547 ; S.correct1       ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.071     ; 1.475      ;
+; -0.510 ; Answer[0]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.438      ;
+; -0.508 ; Answer[1]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.436      ;
+; -0.504 ; Answer[0]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.432      ;
+; -0.503 ; Answer[1]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.431      ;
+; -0.496 ; S.Q1             ; Question[1]~reg0 ; clk          ; clk         ; 1.000        ; 0.281      ; 1.776      ;
+; -0.496 ; S.Q1             ; Question[2]~reg0 ; clk          ; clk         ; 1.000        ; 0.281      ; 1.776      ;
+; -0.478 ; Answer[8]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.406      ;
+; -0.472 ; Answer[8]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.400      ;
+; -0.468 ; Answer[8]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.396      ;
+; -0.467 ; Answer[8]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.395      ;
+; -0.457 ; S.correct0       ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.071     ; 1.385      ;
+; -0.440 ; S.Q0             ; Question[1]~reg0 ; clk          ; clk         ; 1.000        ; 0.280      ; 1.719      ;
+; -0.440 ; S.Q0             ; Question[2]~reg0 ; clk          ; clk         ; 1.000        ; 0.280      ; 1.719      ;
+; -0.425 ; Answer[9]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.353      ;
+; -0.424 ; Answer[9]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 1.352      ;
+; -0.419 ; S.wrong1         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.071     ; 1.347      ;
+; -0.412 ; Answer[9]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.340      ;
+; -0.410 ; S.correct0       ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.071     ; 1.338      ;
+; -0.407 ; S.check1         ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.070     ; 1.336      ;
+; -0.406 ; Answer[9]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 1.334      ;
+; -0.314 ; S.check0         ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.070     ; 1.243      ;
+; -0.301 ; S.correct1       ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.071     ; 1.229      ;
+; -0.297 ; S.wrong0         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.071     ; 1.225      ;
+; -0.289 ; S.correct0       ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.071     ; 1.217      ;
+; -0.289 ; S.Q1             ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.070     ; 1.218      ;
+; -0.283 ; S.wrong1         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.071     ; 1.211      ;
+; -0.271 ; S.wrong0         ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.071     ; 1.199      ;
+; -0.249 ; S.check1         ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.070     ; 1.178      ;
+; -0.240 ; S.check0         ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.070     ; 1.169      ;
+; -0.186 ; S.check1         ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.070     ; 1.115      ;
+; -0.173 ; S.check0         ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.070     ; 1.102      ;
+; -0.135 ; S.Q1             ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.070     ; 1.064      ;
+; -0.071 ; Answer[1]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 0.999      ;
+; -0.069 ; Answer[0]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 0.997      ;
+; -0.068 ; Answer[0]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.071     ; 0.996      ;
+; -0.065 ; Answer[1]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.071     ; 0.993      ;
+; 0.011  ; S.Q0             ; S.check0         ; clk          ; clk         ; 1.000        ; -0.071     ; 0.917      ;
+; 0.036  ; S.correct1       ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.071     ; 0.892      ;
+; 0.038  ; S.wrong0         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.071     ; 0.890      ;
+; 0.047  ; S.wrong1         ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.071     ; 0.881      ;
+; 0.173  ; S.Q1             ; S.check1         ; clk          ; clk         ; 1.000        ; -0.070     ; 0.756      ;
+; 0.269  ; S.correct1       ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.071     ; 0.659      ;
+; 0.269  ; S.correct0       ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.071     ; 0.659      ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                  ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 0.355 ; S.wrong0         ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; S.correct0       ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; S.correct1       ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; S.wrong1         ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 0.597      ;
+; 0.356 ; greenOut~reg0    ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 0.597      ;
+; 0.356 ; redOut~reg0      ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 0.597      ;
+; 0.434 ; S.Q1             ; S.check1         ; clk          ; clk         ; 0.000        ; 0.070      ; 0.675      ;
+; 0.532 ; S.wrong1         ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.071      ; 0.774      ;
+; 0.600 ; S.wrong0         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 0.841      ;
+; 0.602 ; S.correct1       ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 0.843      ;
+; 0.604 ; S.Q0             ; S.check0         ; clk          ; clk         ; 0.000        ; 0.070      ; 0.845      ;
+; 0.666 ; Answer[0]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 0.908      ;
+; 0.668 ; Answer[1]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 0.910      ;
+; 0.680 ; Answer[1]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 0.922      ;
+; 0.683 ; Answer[0]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 0.925      ;
+; 0.706 ; S.Q1             ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 0.947      ;
+; 0.765 ; S.check0         ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.007      ;
+; 0.782 ; S.check1         ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.024      ;
+; 0.819 ; S.check0         ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.061      ;
+; 0.834 ; S.check1         ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.076      ;
+; 0.856 ; S.check0         ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.070      ; 1.097      ;
+; 0.862 ; S.wrong1         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 1.103      ;
+; 0.866 ; S.wrong0         ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.070      ; 1.107      ;
+; 0.867 ; S.correct0       ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 1.108      ;
+; 0.895 ; S.Q1             ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.071      ; 1.137      ;
+; 0.912 ; S.wrong0         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.153      ;
+; 0.915 ; S.correct1       ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.070      ; 1.156      ;
+; 0.949 ; Question[0]~reg0 ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.190      ;
+; 0.994 ; S.correct0       ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.071      ; 1.236      ;
+; 1.005 ; Answer[8]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.247      ;
+; 1.005 ; Answer[9]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.247      ;
+; 1.005 ; Answer[9]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.247      ;
+; 1.006 ; Answer[9]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.248      ;
+; 1.011 ; Answer[8]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.253      ;
+; 1.012 ; Answer[9]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.254      ;
+; 1.024 ; S.check1         ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.071      ; 1.266      ;
+; 1.031 ; Answer[8]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.273      ;
+; 1.032 ; Answer[8]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.274      ;
+; 1.036 ; S.wrong1         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.277      ;
+; 1.046 ; S.correct0       ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.287      ;
+; 1.095 ; Answer[1]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.337      ;
+; 1.108 ; Answer[0]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.350      ;
+; 1.110 ; S.check1         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.351      ;
+; 1.115 ; S.check0         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.356      ;
+; 1.116 ; S.check0         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 1.357      ;
+; 1.117 ; Answer[0]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.359      ;
+; 1.120 ; Answer[1]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.362      ;
+; 1.128 ; S.Q0             ; Question[1]~reg0 ; clk          ; clk         ; 0.000        ; 0.436      ; 1.735      ;
+; 1.128 ; S.Q0             ; Question[2]~reg0 ; clk          ; clk         ; 0.000        ; 0.436      ; 1.735      ;
+; 1.150 ; S.Q1             ; Question[1]~reg0 ; clk          ; clk         ; 0.000        ; 0.436      ; 1.757      ;
+; 1.150 ; S.Q1             ; Question[2]~reg0 ; clk          ; clk         ; 0.000        ; 0.436      ; 1.757      ;
+; 1.159 ; S.correct1       ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 1.400      ;
+; 1.162 ; S.wrong0         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 1.403      ;
+; 1.183 ; S.correct1       ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.070      ; 1.424      ;
+; 1.201 ; S.Q0             ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.070      ; 1.442      ;
+; 1.212 ; Answer[2]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.454      ;
+; 1.214 ; Answer[2]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.456      ;
+; 1.223 ; Answer[2]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.465      ;
+; 1.227 ; Answer[2]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.469      ;
+; 1.255 ; S.check1         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 1.496      ;
+; 1.257 ; S.check1         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 1.498      ;
+; 1.262 ; S.check0         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 1.503      ;
+; 1.292 ; Answer[6]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.534      ;
+; 1.293 ; Answer[7]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.535      ;
+; 1.298 ; Answer[6]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.540      ;
+; 1.299 ; Answer[7]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.541      ;
+; 1.310 ; S.correct0       ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.070      ; 1.551      ;
+; 1.318 ; Answer[6]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.560      ;
+; 1.319 ; Answer[7]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.561      ;
+; 1.319 ; Answer[6]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.561      ;
+; 1.320 ; Answer[7]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.562      ;
+; 1.384 ; Answer[3]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.626      ;
+; 1.388 ; Answer[3]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.630      ;
+; 1.408 ; Answer[3]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.650      ;
+; 1.410 ; Answer[3]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.652      ;
+; 1.452 ; S.wrong1         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.070      ; 1.693      ;
+; 1.478 ; S.Q1             ; Answer[8]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[1]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[0]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[3]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[2]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[4]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[5]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[9]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[6]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.478 ; S.Q1             ; Answer[7]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.720      ;
+; 1.508 ; Answer[4]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.750      ;
+; 1.509 ; Answer[5]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.751      ;
+; 1.512 ; Answer[4]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.754      ;
+; 1.513 ; Answer[5]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.071      ; 1.755      ;
+; 1.533 ; Answer[4]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.775      ;
+; 1.534 ; Answer[5]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.776      ;
+; 1.534 ; Answer[4]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.776      ;
+; 1.535 ; Answer[5]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.071      ; 1.777      ;
+; 1.578 ; S.Q0             ; Answer[8]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.820      ;
+; 1.578 ; S.Q0             ; Answer[1]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.820      ;
+; 1.578 ; S.Q0             ; Answer[0]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.820      ;
+; 1.578 ; S.Q0             ; Answer[3]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.820      ;
+; 1.578 ; S.Q0             ; Answer[2]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.820      ;
+; 1.578 ; S.Q0             ; Answer[4]        ; clk          ; clk         ; 0.000        ; 0.071      ; 1.820      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'clk'                                                            ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                       ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[0]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[1]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[2]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[3]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[4]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[5]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[6]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[7]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[8]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Answer[9]                 ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Question[0]~reg0          ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Question[1]~reg0          ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; Question[2]~reg0          ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.Q0                      ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.Q1                      ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.check0                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.check1                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.correct0                ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.correct1                ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.wrong0                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; S.wrong1                  ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; greenOut~reg0             ;
+; -1.285 ; 1.000        ; 2.285          ; Min Period       ; clk   ; Rise       ; redOut~reg0               ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[0]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[1]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[2]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[3]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[4]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[5]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[6]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[7]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[8]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Answer[9]                 ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.Q0                      ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.correct0                ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.correct1                ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong0                  ;
+; 0.277  ; 0.463        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong1                  ;
+; 0.278  ; 0.464        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Question[0]~reg0          ;
+; 0.278  ; 0.464        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.Q1                      ;
+; 0.278  ; 0.464        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.check0                  ;
+; 0.278  ; 0.464        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; S.check1                  ;
+; 0.278  ; 0.464        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; greenOut~reg0             ;
+; 0.278  ; 0.464        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; redOut~reg0               ;
+; 0.295  ; 0.481        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Question[1]~reg0          ;
+; 0.295  ; 0.481        ; 0.186          ; Low Pulse Width  ; clk   ; Rise       ; Question[2]~reg0          ;
+; 0.298  ; 0.516        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Question[1]~reg0          ;
+; 0.298  ; 0.516        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Question[2]~reg0          ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[0]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[1]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[2]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[3]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[4]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[5]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[6]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[7]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[8]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Answer[9]                 ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; Question[0]~reg0          ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.Q0                      ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.Q1                      ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.check0                  ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.check1                  ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.correct0                ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.correct1                ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.wrong0                  ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; S.wrong1                  ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; greenOut~reg0             ;
+; 0.316  ; 0.534        ; 0.218          ; High Pulse Width ; clk   ; Rise       ; redOut~reg0               ;
+; 0.416  ; 0.416        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o               ;
+; 0.422  ; 0.422        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|inclk[0] ;
+; 0.422  ; 0.422        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|outclk   ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[0]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[1]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[2]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[3]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[4]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[5]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[6]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[7]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[8]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[9]|clk             ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.Q0|clk                  ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.correct0|clk            ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.correct1|clk            ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong0|clk              ;
+; 0.425  ; 0.425        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong1|clk              ;
+; 0.426  ; 0.426        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[0]~reg0|clk      ;
+; 0.426  ; 0.426        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.Q1|clk                  ;
+; 0.426  ; 0.426        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.check0|clk              ;
+; 0.426  ; 0.426        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.check1|clk              ;
+; 0.426  ; 0.426        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; greenOut~reg0|clk         ;
+; 0.426  ; 0.426        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; redOut~reg0|clk           ;
+; 0.443  ; 0.443        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[1]~reg0|clk      ;
+; 0.443  ; 0.443        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[2]~reg0|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i               ;
+; 0.556  ; 0.556        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; Question[1]~reg0|clk      ;
+; 0.556  ; 0.556        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; Question[2]~reg0|clk      ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; answer[*]  ; clk        ; 1.597 ; 1.809 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; 1.087 ; 1.341 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; 1.378 ; 1.618 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; 1.072 ; 1.329 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; 1.347 ; 1.584 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; 0.885 ; 1.118 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; 1.212 ; 1.434 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; 1.597 ; 1.809 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; 0.921 ; 1.158 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; 1.505 ; 1.724 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; 1.011 ; 1.278 ; Rise       ; clk             ;
+; rst        ; clk        ; 2.492 ; 2.659 ; Rise       ; clk             ;
+; submit     ; clk        ; 2.008 ; 2.217 ; Rise       ; clk             ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Times                                                               ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; answer[*]  ; clk        ; -0.502 ; -0.716 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; -0.710 ; -0.952 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; -0.990 ; -1.219 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; -0.696 ; -0.941 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; -0.960 ; -1.185 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; -0.502 ; -0.716 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; -0.816 ; -1.020 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; -1.186 ; -1.380 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; -0.537 ; -0.755 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; -1.096 ; -1.297 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; -0.637 ; -0.891 ; Rise       ; clk             ;
+; rst        ; clk        ; -2.100 ; -2.260 ; Rise       ; clk             ;
+; submit     ; clk        ; -1.105 ; -1.297 ; Rise       ; clk             ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 7.723 ; 7.844 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 7.723 ; 7.844 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 7.247 ; 7.353 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 6.917 ; 7.010 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 6.945 ; 7.034 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 6.381 ; 6.453 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 7.532 ; 7.516 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 8.811 ; 8.770 ; Rise       ; clk             ;
+; redOut       ; clk        ; 8.824 ; 8.810 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 6.152 ; 6.222 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 7.436 ; 7.554 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 6.983 ; 7.086 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 6.665 ; 6.756 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 6.694 ; 6.781 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 6.152 ; 6.222 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 7.303 ; 7.286 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 8.486 ; 8.445 ; Rise       ; clk             ;
+; redOut       ; clk        ; 8.498 ; 8.484 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -0.030 ; -0.220            ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.183 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -27.450                         ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                  ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; -0.030 ; Answer[5]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.977      ;
+; -0.029 ; Answer[5]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.976      ;
+; -0.021 ; Answer[4]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.968      ;
+; -0.020 ; Answer[4]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.967      ;
+; -0.018 ; S.wrong1         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.040     ; 0.965      ;
+; -0.018 ; Answer[5]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.965      ;
+; -0.016 ; Answer[4]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.963      ;
+; -0.015 ; Answer[5]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.962      ;
+; -0.011 ; S.Q0             ; Answer[8]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[1]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[0]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[3]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[2]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[4]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[5]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[9]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[6]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; S.Q0             ; Answer[7]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; -0.011 ; Answer[4]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.958      ;
+; 0.050  ; Answer[3]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.897      ;
+; 0.051  ; Answer[3]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.896      ;
+; 0.055  ; S.correct0       ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.040     ; 0.892      ;
+; 0.058  ; Answer[3]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.889      ;
+; 0.063  ; Answer[3]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.884      ;
+; 0.065  ; S.Q1             ; Answer[8]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[1]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[0]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[3]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[2]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[4]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[5]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[9]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[6]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.065  ; S.Q1             ; Answer[7]        ; clk          ; clk         ; 1.000        ; -0.040     ; 0.882      ;
+; 0.068  ; S.check0         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.040     ; 0.879      ;
+; 0.069  ; S.check1         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.040     ; 0.878      ;
+; 0.072  ; S.check1         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.040     ; 0.875      ;
+; 0.082  ; Answer[7]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.865      ;
+; 0.083  ; Answer[7]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.864      ;
+; 0.090  ; Answer[6]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.857      ;
+; 0.091  ; Answer[6]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.856      ;
+; 0.093  ; Answer[7]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.854      ;
+; 0.098  ; Answer[7]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.849      ;
+; 0.101  ; Answer[6]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.846      ;
+; 0.106  ; Answer[6]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.841      ;
+; 0.108  ; Answer[2]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.839      ;
+; 0.112  ; Answer[2]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.835      ;
+; 0.113  ; Answer[2]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.834      ;
+; 0.113  ; Answer[2]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.834      ;
+; 0.132  ; S.Q0             ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.815      ;
+; 0.136  ; S.correct1       ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.811      ;
+; 0.140  ; S.wrong0         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.040     ; 0.807      ;
+; 0.144  ; Question[0]~reg0 ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.803      ;
+; 0.144  ; S.correct1       ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.040     ; 0.803      ;
+; 0.151  ; S.check0         ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.040     ; 0.796      ;
+; 0.163  ; S.check0         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.784      ;
+; 0.165  ; S.check1         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.782      ;
+; 0.177  ; Answer[1]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.770      ;
+; 0.179  ; Answer[0]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.768      ;
+; 0.189  ; S.Q1             ; Question[1]~reg0 ; clk          ; clk         ; 1.000        ; 0.142      ; 0.940      ;
+; 0.189  ; S.Q1             ; Question[2]~reg0 ; clk          ; clk         ; 1.000        ; 0.142      ; 0.940      ;
+; 0.190  ; Answer[0]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.757      ;
+; 0.192  ; Answer[1]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.755      ;
+; 0.211  ; S.correct0       ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.736      ;
+; 0.230  ; Answer[9]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.717      ;
+; 0.232  ; S.check1         ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.715      ;
+; 0.234  ; S.Q0             ; Question[1]~reg0 ; clk          ; clk         ; 1.000        ; 0.142      ; 0.895      ;
+; 0.234  ; S.Q0             ; Question[2]~reg0 ; clk          ; clk         ; 1.000        ; 0.142      ; 0.895      ;
+; 0.234  ; S.wrong1         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.713      ;
+; 0.235  ; Answer[9]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.712      ;
+; 0.236  ; Answer[9]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.711      ;
+; 0.237  ; Answer[9]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.710      ;
+; 0.237  ; S.correct0       ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.710      ;
+; 0.238  ; Answer[8]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.709      ;
+; 0.239  ; Answer[8]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.708      ;
+; 0.249  ; Answer[8]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.698      ;
+; 0.254  ; Answer[8]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.693      ;
+; 0.278  ; S.correct0       ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.040     ; 0.669      ;
+; 0.286  ; S.wrong1         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.040     ; 0.661      ;
+; 0.286  ; S.correct1       ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.661      ;
+; 0.290  ; S.wrong0         ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.657      ;
+; 0.293  ; S.wrong0         ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.654      ;
+; 0.298  ; S.Q1             ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.649      ;
+; 0.300  ; S.check0         ; S.Q1             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.647      ;
+; 0.305  ; S.check1         ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.642      ;
+; 0.312  ; S.check0         ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.635      ;
+; 0.337  ; S.check1         ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.610      ;
+; 0.347  ; S.check0         ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.600      ;
+; 0.378  ; S.Q1             ; Question[0]~reg0 ; clk          ; clk         ; 1.000        ; -0.040     ; 0.569      ;
+; 0.419  ; Answer[1]        ; S.correct1       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.528      ;
+; 0.421  ; Answer[0]        ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.526      ;
+; 0.422  ; Answer[0]        ; S.correct0       ; clk          ; clk         ; 1.000        ; -0.040     ; 0.525      ;
+; 0.424  ; Answer[1]        ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.523      ;
+; 0.459  ; S.correct1       ; greenOut~reg0    ; clk          ; clk         ; 1.000        ; -0.040     ; 0.488      ;
+; 0.460  ; S.Q0             ; S.check0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.487      ;
+; 0.460  ; S.wrong0         ; redOut~reg0      ; clk          ; clk         ; 1.000        ; -0.040     ; 0.487      ;
+; 0.487  ; S.wrong1         ; S.Q0             ; clk          ; clk         ; 1.000        ; -0.040     ; 0.460      ;
+; 0.545  ; S.Q1             ; S.check1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.402      ;
+; 0.597  ; S.wrong0         ; S.wrong0         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.350      ;
+; 0.597  ; S.wrong1         ; S.wrong1         ; clk          ; clk         ; 1.000        ; -0.040     ; 0.350      ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                  ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 0.183 ; greenOut~reg0    ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; redOut~reg0      ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; S.wrong0         ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; S.correct0       ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; S.correct1       ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; S.wrong1         ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.307      ;
+; 0.213 ; S.Q1             ; S.check1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.337      ;
+; 0.262 ; S.wrong1         ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.386      ;
+; 0.280 ; S.wrong0         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.404      ;
+; 0.282 ; S.correct1       ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.406      ;
+; 0.291 ; S.Q0             ; S.check0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.415      ;
+; 0.337 ; Answer[0]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.461      ;
+; 0.340 ; Answer[1]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.464      ;
+; 0.343 ; Answer[1]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.467      ;
+; 0.345 ; Answer[0]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.469      ;
+; 0.355 ; S.Q1             ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.479      ;
+; 0.371 ; S.check0         ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.495      ;
+; 0.380 ; S.check1         ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.504      ;
+; 0.404 ; S.check0         ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.528      ;
+; 0.409 ; S.check1         ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.533      ;
+; 0.419 ; S.wrong0         ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.543      ;
+; 0.423 ; S.wrong1         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.547      ;
+; 0.429 ; S.correct0       ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.553      ;
+; 0.430 ; S.check0         ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.554      ;
+; 0.433 ; S.Q1             ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.557      ;
+; 0.439 ; S.wrong0         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.563      ;
+; 0.442 ; S.correct1       ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.566      ;
+; 0.480 ; Question[0]~reg0 ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.604      ;
+; 0.487 ; S.check1         ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.611      ;
+; 0.490 ; S.correct0       ; S.Q0             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.614      ;
+; 0.499 ; Answer[9]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.623      ;
+; 0.501 ; S.wrong1         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.625      ;
+; 0.505 ; Answer[9]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.629      ;
+; 0.507 ; Answer[9]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.631      ;
+; 0.507 ; S.correct0       ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.631      ;
+; 0.508 ; Answer[9]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.632      ;
+; 0.533 ; Answer[8]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.657      ;
+; 0.539 ; Answer[8]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.663      ;
+; 0.540 ; Answer[8]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.664      ;
+; 0.542 ; Answer[8]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.666      ;
+; 0.556 ; Answer[1]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.680      ;
+; 0.557 ; S.check0         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.681      ;
+; 0.559 ; Answer[0]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.683      ;
+; 0.562 ; Answer[0]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.686      ;
+; 0.562 ; S.check1         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.686      ;
+; 0.563 ; S.correct1       ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.687      ;
+; 0.563 ; Answer[1]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.687      ;
+; 0.564 ; S.Q0             ; Question[1]~reg0 ; clk          ; clk         ; 0.000        ; 0.229      ; 0.877      ;
+; 0.564 ; S.Q0             ; Question[2]~reg0 ; clk          ; clk         ; 0.000        ; 0.229      ; 0.877      ;
+; 0.566 ; S.wrong0         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.690      ;
+; 0.567 ; S.check0         ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.691      ;
+; 0.575 ; S.Q1             ; Question[1]~reg0 ; clk          ; clk         ; 0.000        ; 0.229      ; 0.888      ;
+; 0.575 ; S.Q1             ; Question[2]~reg0 ; clk          ; clk         ; 0.000        ; 0.229      ; 0.888      ;
+; 0.581 ; S.correct1       ; Question[0]~reg0 ; clk          ; clk         ; 0.000        ; 0.040      ; 0.705      ;
+; 0.609 ; Answer[2]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.733      ;
+; 0.610 ; S.Q0             ; S.Q1             ; clk          ; clk         ; 0.000        ; 0.040      ; 0.734      ;
+; 0.614 ; Answer[2]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.738      ;
+; 0.617 ; Answer[2]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.741      ;
+; 0.617 ; Answer[2]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.741      ;
+; 0.631 ; S.check1         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.755      ;
+; 0.632 ; S.check1         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.756      ;
+; 0.637 ; S.check0         ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.761      ;
+; 0.638 ; S.correct0       ; redOut~reg0      ; clk          ; clk         ; 0.000        ; 0.040      ; 0.762      ;
+; 0.671 ; Answer[6]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.795      ;
+; 0.673 ; Answer[7]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.797      ;
+; 0.677 ; Answer[6]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.801      ;
+; 0.678 ; Answer[6]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.802      ;
+; 0.679 ; Answer[7]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.803      ;
+; 0.680 ; Answer[7]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.804      ;
+; 0.680 ; Answer[6]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.804      ;
+; 0.682 ; Answer[7]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.806      ;
+; 0.715 ; S.wrong1         ; greenOut~reg0    ; clk          ; clk         ; 0.000        ; 0.040      ; 0.839      ;
+; 0.719 ; Answer[3]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.843      ;
+; 0.723 ; Answer[3]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.847      ;
+; 0.726 ; Answer[3]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.850      ;
+; 0.726 ; Answer[3]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.850      ;
+; 0.732 ; S.Q1             ; Answer[8]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[1]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[0]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[3]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[2]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[4]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[5]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[9]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[6]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.732 ; S.Q1             ; Answer[7]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.856      ;
+; 0.789 ; Answer[4]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.913      ;
+; 0.790 ; Answer[5]        ; S.correct0       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.914      ;
+; 0.793 ; Answer[4]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.917      ;
+; 0.794 ; Answer[5]        ; S.correct1       ; clk          ; clk         ; 0.000        ; 0.040      ; 0.918      ;
+; 0.796 ; Answer[4]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.920      ;
+; 0.796 ; Answer[4]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.920      ;
+; 0.797 ; Answer[5]        ; S.wrong1         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.921      ;
+; 0.797 ; Answer[5]        ; S.wrong0         ; clk          ; clk         ; 0.000        ; 0.040      ; 0.921      ;
+; 0.808 ; S.Q0             ; Answer[8]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.932      ;
+; 0.808 ; S.Q0             ; Answer[1]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.932      ;
+; 0.808 ; S.Q0             ; Answer[0]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.932      ;
+; 0.808 ; S.Q0             ; Answer[3]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.932      ;
+; 0.808 ; S.Q0             ; Answer[2]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.932      ;
+; 0.808 ; S.Q0             ; Answer[4]        ; clk          ; clk         ; 0.000        ; 0.040      ; 0.932      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'clk'                                                            ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[4]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[5]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[6]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[7]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[8]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Answer[9]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Question[0]~reg0          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Question[1]~reg0          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; Question[2]~reg0          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.Q0                      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.Q1                      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.check0                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.check1                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.correct0                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.correct1                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.wrong0                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; S.wrong1                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; greenOut~reg0             ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; redOut~reg0               ;
+; -0.077 ; 0.107        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Question[1]~reg0          ;
+; -0.077 ; 0.107        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Question[2]~reg0          ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[0]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[1]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[2]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[3]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[4]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[5]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[6]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[7]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[8]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Answer[9]                 ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.Q0                      ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.correct0                ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.correct1                ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong0                  ;
+; -0.062 ; 0.122        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong1                  ;
+; -0.061 ; 0.123        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; Question[0]~reg0          ;
+; -0.061 ; 0.123        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.Q1                      ;
+; -0.061 ; 0.123        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.check0                  ;
+; -0.061 ; 0.123        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; S.check1                  ;
+; -0.061 ; 0.123        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; greenOut~reg0             ;
+; -0.061 ; 0.123        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; redOut~reg0               ;
+; 0.103  ; 0.103        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[1]~reg0|clk      ;
+; 0.103  ; 0.103        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[2]~reg0|clk      ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[0]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[1]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[2]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[3]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[4]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[5]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[6]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[7]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[8]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Answer[9]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; Question[0]~reg0|clk      ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.Q0|clk                  ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.Q1|clk                  ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.check0|clk              ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.check1|clk              ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.correct0|clk            ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.correct1|clk            ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong0|clk              ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; S.wrong1|clk              ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; greenOut~reg0|clk         ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; redOut~reg0|clk           ;
+; 0.120  ; 0.120        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o               ;
+; 0.133  ; 0.133        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|inclk[0] ;
+; 0.133  ; 0.133        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i               ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[0]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[1]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[2]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[3]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[4]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[5]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[6]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[7]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[8]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Answer[9]                 ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Question[0]~reg0          ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.Q0                      ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.Q1                      ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.check0                  ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.check1                  ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.correct0                ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.correct1                ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.wrong0                  ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; S.wrong1                  ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; greenOut~reg0             ;
+; 0.660  ; 0.876        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; redOut~reg0               ;
+; 0.674  ; 0.890        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Question[1]~reg0          ;
+; 0.674  ; 0.890        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; Question[2]~reg0          ;
+; 0.866  ; 0.866        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|inclk[0] ;
+; 0.866  ; 0.866        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|outclk   ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; answer[*]  ; clk        ; 0.873 ; 1.502 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; 0.587 ; 1.159 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; 0.747 ; 1.337 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; 0.588 ; 1.157 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; 0.731 ; 1.315 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; 0.483 ; 1.057 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; 0.666 ; 1.262 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; 0.873 ; 1.502 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; 0.512 ; 1.090 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; 0.798 ; 1.427 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; 0.551 ; 1.116 ; Rise       ; clk             ;
+; rst        ; clk        ; 1.280 ; 1.892 ; Rise       ; clk             ;
+; submit     ; clk        ; 1.043 ; 1.677 ; Rise       ; clk             ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Times                                                               ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; answer[*]  ; clk        ; -0.268 ; -0.829 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; -0.373 ; -0.939 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; -0.527 ; -1.110 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; -0.374 ; -0.937 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; -0.511 ; -1.089 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; -0.268 ; -0.829 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; -0.444 ; -1.026 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; -0.643 ; -1.257 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; -0.296 ; -0.861 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; -0.569 ; -1.184 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; -0.338 ; -0.896 ; Rise       ; clk             ;
+; rst        ; clk        ; -1.060 ; -1.664 ; Rise       ; clk             ;
+; submit     ; clk        ; -0.567 ; -1.165 ; Rise       ; clk             ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 4.748 ; 4.614 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 4.683 ; 4.505 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 4.357 ; 4.230 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 4.143 ; 4.040 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 4.211 ; 4.077 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 3.846 ; 3.750 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 4.748 ; 4.614 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 5.071 ; 5.357 ; Rise       ; clk             ;
+; redOut       ; clk        ; 5.095 ; 5.385 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 3.723 ; 3.630 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 4.523 ; 4.352 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 4.214 ; 4.091 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 4.008 ; 3.909 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 4.074 ; 3.944 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 3.723 ; 3.630 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 4.625 ; 4.494 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 4.897 ; 5.172 ; Rise       ; clk             ;
+; redOut       ; clk        ; 4.919 ; 5.198 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -1.159  ; 0.183 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -1.159  ; 0.183 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -21.148 ; 0.0   ; 0.0      ; 0.0     ; -32.555             ;
+;  clk             ; -21.148 ; 0.000 ; N/A      ; N/A     ; -32.555             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; answer[*]  ; clk        ; 1.820 ; 2.151 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; 1.273 ; 1.625 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; 1.584 ; 1.931 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; 1.254 ; 1.612 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; 1.546 ; 1.894 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; 1.052 ; 1.391 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; 1.400 ; 1.739 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; 1.820 ; 2.151 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; 1.087 ; 1.435 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; 1.717 ; 2.073 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; 1.193 ; 1.554 ; Rise       ; clk             ;
+; rst        ; clk        ; 2.784 ; 3.088 ; Rise       ; clk             ;
+; submit     ; clk        ; 2.258 ; 2.615 ; Rise       ; clk             ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Times                                                               ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; answer[*]  ; clk        ; -0.268 ; -0.716 ; Rise       ; clk             ;
+;  answer[0] ; clk        ; -0.373 ; -0.939 ; Rise       ; clk             ;
+;  answer[1] ; clk        ; -0.527 ; -1.110 ; Rise       ; clk             ;
+;  answer[2] ; clk        ; -0.374 ; -0.937 ; Rise       ; clk             ;
+;  answer[3] ; clk        ; -0.511 ; -1.089 ; Rise       ; clk             ;
+;  answer[4] ; clk        ; -0.268 ; -0.716 ; Rise       ; clk             ;
+;  answer[5] ; clk        ; -0.444 ; -1.020 ; Rise       ; clk             ;
+;  answer[6] ; clk        ; -0.643 ; -1.257 ; Rise       ; clk             ;
+;  answer[7] ; clk        ; -0.296 ; -0.755 ; Rise       ; clk             ;
+;  answer[8] ; clk        ; -0.569 ; -1.184 ; Rise       ; clk             ;
+;  answer[9] ; clk        ; -0.338 ; -0.891 ; Rise       ; clk             ;
+; rst        ; clk        ; -1.060 ; -1.664 ; Rise       ; clk             ;
+; submit     ; clk        ; -0.567 ; -1.165 ; Rise       ; clk             ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 8.596 ; 8.650 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 8.596 ; 8.650 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 8.070 ; 8.107 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 7.705 ; 7.743 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 7.737 ; 7.763 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 7.117 ; 7.139 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 8.469 ; 8.387 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 9.667 ; 9.772 ; Rise       ; clk             ;
+; redOut       ; clk        ; 9.680 ; 9.812 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Question[*]  ; clk        ; 3.723 ; 3.630 ; Rise       ; clk             ;
+;  Question[0] ; clk        ; 4.523 ; 4.352 ; Rise       ; clk             ;
+;  Question[1] ; clk        ; 4.214 ; 4.091 ; Rise       ; clk             ;
+;  Question[2] ; clk        ; 4.008 ; 3.909 ; Rise       ; clk             ;
+;  Question[3] ; clk        ; 4.074 ; 3.944 ; Rise       ; clk             ;
+;  Question[4] ; clk        ; 3.723 ; 3.630 ; Rise       ; clk             ;
+;  Question[5] ; clk        ; 4.625 ; 4.494 ; Rise       ; clk             ;
+; greenOut     ; clk        ; 4.897 ; 5.172 ; Rise       ; clk             ;
+; redOut       ; clk        ; 4.919 ; 5.198 ; Rise       ; clk             ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; redOut        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; greenOut      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[0]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[1]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[2]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[3]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[4]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[5]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Question[6]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rst                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; submit                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[9]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[8]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[7]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[6]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[5]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[4]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[3]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[2]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[0]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; answer[1]               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; redOut        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; greenOut      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; Question[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; Question[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; Question[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; Question[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; Question[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; Question[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.33 V              ; -0.00496 V          ; 0.223 V                              ; 0.086 V                              ; 2.9e-09 s                   ; 2.73e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.33 V             ; -0.00496 V         ; 0.223 V                             ; 0.086 V                             ; 2.9e-09 s                  ; 2.73e-09 s                 ; Yes                       ; Yes                       ;
+; Question[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.33 V              ; -0.00496 V          ; 0.223 V                              ; 0.086 V                              ; 2.9e-09 s                   ; 2.73e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.33 V             ; -0.00496 V         ; 0.223 V                             ; 0.086 V                             ; 2.9e-09 s                  ; 2.73e-09 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.67e-09 V                   ; 2.38 V              ; -0.0485 V           ; 0.167 V                              ; 0.096 V                              ; 2.95e-10 s                  ; 2.73e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.67e-09 V                  ; 2.38 V             ; -0.0485 V          ; 0.167 V                             ; 0.096 V                             ; 2.95e-10 s                 ; 2.73e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.18e-09 V                   ; 2.38 V              ; -0.00483 V          ; 0.152 V                              ; 0.012 V                              ; 4.81e-10 s                  ; 6.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.18e-09 V                  ; 2.38 V             ; -0.00483 V         ; 0.152 V                             ; 0.012 V                             ; 4.81e-10 s                 ; 6.29e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; redOut        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; greenOut      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; Question[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; Question[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; Question[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; Question[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; Question[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; Question[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.33 V              ; -0.00269 V          ; 0.13 V                               ; 0.055 V                              ; 3.54e-09 s                  ; 3.29e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.33 V             ; -0.00269 V         ; 0.13 V                              ; 0.055 V                             ; 3.54e-09 s                 ; 3.29e-09 s                 ; Yes                       ; Yes                       ;
+; Question[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.33 V              ; -0.00269 V          ; 0.13 V                               ; 0.055 V                              ; 3.54e-09 s                  ; 3.29e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.33 V             ; -0.00269 V         ; 0.13 V                              ; 0.055 V                             ; 3.54e-09 s                 ; 3.29e-09 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.75e-07 V                   ; 2.35 V              ; -0.0109 V           ; 0.084 V                              ; 0.027 V                              ; 4.31e-10 s                  ; 3.61e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.75e-07 V                  ; 2.35 V             ; -0.0109 V          ; 0.084 V                             ; 0.027 V                             ; 4.31e-10 s                 ; 3.61e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.15e-07 V                   ; 2.35 V              ; -0.00712 V          ; 0.093 V                              ; 0.02 V                               ; 6.21e-10 s                  ; 7.9e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 6.15e-07 V                  ; 2.35 V             ; -0.00712 V         ; 0.093 V                             ; 0.02 V                              ; 6.21e-10 s                 ; 7.9e-10 s                  ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; redOut        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; greenOut      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; Question[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; Question[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; Question[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; Question[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; Question[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; Question[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.64 V              ; -0.0117 V           ; 0.202 V                              ; 0.176 V                              ; 2.38e-09 s                  ; 2.22e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.64 V             ; -0.0117 V          ; 0.202 V                             ; 0.176 V                             ; 2.38e-09 s                 ; 2.22e-09 s                 ; No                        ; Yes                       ;
+; Question[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.64 V              ; -0.0117 V           ; 0.202 V                              ; 0.176 V                              ; 2.38e-09 s                  ; 2.22e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.64 V             ; -0.0117 V          ; 0.202 V                             ; 0.176 V                             ; 2.38e-09 s                 ; 2.22e-09 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 105      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 105      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 41    ; 41   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 8     ; 8    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Thu Nov 19 11:29:34 2015
+Info: Command: quartus_sta twoQfsm -c twoQfsm
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (21077): Core supply voltage is 1.2V
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'twoQfsm.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.159
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.159             -21.148 clk 
+Info (332146): Worst-case hold slack is 0.403
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.403               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -32.555 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.965
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.965             -17.128 clk 
+Info (332146): Worst-case hold slack is 0.355
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.355               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -32.555 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.030
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.030              -0.220 clk 
+Info (332146): Worst-case hold slack is 0.183
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.183               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -27.450 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 647 megabytes
+    Info: Processing ended: Thu Nov 19 11:29:37 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+
